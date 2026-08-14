@@ -102,13 +102,17 @@
         }
         .hero-bg {
             position: absolute; inset: 0;
-            background: linear-gradient(135deg, #2c1810 0%, #1a1a1a 50%, #0d1b0e 100%);
+            background: url('assets/hero-gazebo-web.jpg') center center / cover no-repeat;
         }
         .hero-bg::after {
             content: '';
             position: absolute; inset: 0;
-            background: radial-gradient(ellipse at 30% 50%, rgba(184,115,51,0.15) 0%, transparent 60%),
-                        radial-gradient(ellipse at 70% 30%, rgba(197,151,91,0.1) 0%, transparent 50%);
+            background: rgba(0,0,0,0.35);
+        }
+        @media (max-width: 768px) {
+            .hero-bg {
+                background-image: url('assets/hero-gazebo-mobile.jpg');
+            }
         }
         .hero-overlay {
             position: absolute; inset: 0;
@@ -735,7 +739,7 @@
         <a href="#" class="nav-logo">John's <span>Gazebos</span></a>
         <div class="nav-links" id="navLinks">
             <a href="#showcase">Gallery</a>
-            <a href="#ar-experience">AR View</a>
+            <a href="#video">Video</a>
             <a href="#features">Features</a>
             <a href="#specs">Specifications</a>
             <a href="#quote" class="nav-cta">Get Quote</a>
@@ -753,11 +757,11 @@
     <div class="hero-content" id="heroContent">
         <div class="hero-badge">★ Premium Outdoor Living</div>
         <h1>Your Dream Outdoor Kitchen, <em>Visualized</em></h1>
-        <p>Experience our handcrafted 13'×15' timber frame gazebo with a complete built-in kitchen — place it in your backyard using AR before you buy.</p>
+        <p>Experience our handcrafted 13'×15' timber frame gazebo with a complete built-in kitchen — the perfect addition to your backyard.</p>
         <div class="hero-btns">
-            <a href="#ar-experience" class="btn btn-primary">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M10 8l6 4-6 4V8z"/></svg>
-                Launch AR Experience
+            <a href="#showcase" class="btn btn-primary">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                View the Gazebo
             </a>
             <a href="#quote" class="btn btn-outline">Get a Free Quote</a>
         </div>
@@ -812,57 +816,7 @@
     </div>
 </section>
 
-<!-- AR Experience Section -->
-<section class="ar-section" id="ar-experience">
-    <div class="ar-inner">
-        <div class="ar-content">
-            <div class="section-label">Augmented Reality</div>
-            <div class="section-title">Place It in Your Backyard</div>
-            <div class="section-subtitle">Use our interactive 3D viewer to explore every detail, then launch AR on your phone to see the gazebo at real scale in your own space.</div>
-            <div class="ar-features">
-                <div class="ar-feature">
-                    <div class="ar-feature-icon">📐</div>
-                    <div>
-                        <h4>True-to-Scale</h4>
-                        <p>See the exact 13' × 15' footprint in your yard</p>
-                    </div>
-                </div>
-                <div class="ar-feature">
-                    <div class="ar-feature-icon">🔄</div>
-                    <div>
-                        <h4>360° Exploration</h4>
-                        <p>Walk around and inspect every detail</p>
-                    </div>
-                </div>
-                <div class="ar-feature">
-                    <div class="ar-feature-icon">☀️</div>
-                    <div>
-                        <h4>Realistic Lighting</h4>
-                        <p>Dynamic lighting shows true material quality</p>
-                    </div>
-                </div>
-            </div>
-            <a href="#quote" class="btn btn-primary" style="margin-top:2rem;">Get Your Quote Today</a>
-        </div>
-        <div class="ar-viewer-container" id="arViewerContainer">
-            <canvas id="ar-canvas"></canvas>
-            <div class="ar-controls">
-                <button class="ar-btn active" onclick="setViewAngle('front')">Front</button>
-                <button class="ar-btn" onclick="setViewAngle('side')">Side</button>
-                <button class="ar-btn" onclick="setViewAngle('top')">Top</button>
-                <button class="ar-btn" onclick="launchAR()">📱 Launch AR</button>
-            </div>
-            <div class="ar-phone-prompt" id="arPhonePrompt">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                    <rect x="5" y="2" width="14" height="20" rx="2"/><circle cx="12" cy="18" r="1"/>
-                </svg>
-                <h4>AR Available on Mobile</h4>
-                <p>Scan the QR code or visit this page on your phone to place the gazebo in your backyard.</p>
-                <button class="ar-btn" onclick="closeARPrompt()">Close</button>
-            </div>
-        </div>
-    </div>
-</section>
+
 
 <!-- Features Section -->
 <section class="features" id="features">
@@ -1020,7 +974,7 @@
         <div class="footer-col">
             <h4>Quick Links</h4>
             <a href="#showcase">Gallery</a>
-            <a href="#ar-experience">AR Experience</a>
+            <a href="#video">Video</a>
             <a href="#features">Features</a>
             <a href="#specs">Specifications</a>
             <a href="#quote">Get Quote</a>
@@ -1043,8 +997,6 @@
 </div>
 
 <!-- Scripts -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script>
@@ -1146,445 +1098,6 @@ gsap.utils.toArray('.section-title').forEach(function(el) {
 });
 
 // ============================================
-// THREE.JS 3D GAZEBO VIEWER
-// ============================================
-var scene, camera, renderer, controls, gazeboGroup;
-var animationFrameId;
-
-function initThreeJS() {
-    var container = document.getElementById('arViewerContainer');
-    var canvas = document.getElementById('ar-canvas');
-
-    scene = new THREE.Scene();
-    scene.background = new THREE.Color(0x1a2a1a);
-    scene.fog = new THREE.FogExp2(0x1a2a1a, 0.015);
-
-    camera = new THREE.PerspectiveCamera(45, container.clientWidth / container.clientHeight, 0.1, 1000);
-    camera.position.set(12, 8, 16);
-
-    renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true, alpha: true });
-    renderer.setSize(container.clientWidth, container.clientHeight);
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-    renderer.shadowMap.enabled = true;
-    renderer.shadowMap.type = THREE.PCFSoftShadowMap;
-    renderer.toneMapping = THREE.ACESFilmicToneMapping;
-    renderer.toneMappingExposure = 1.0;
-
-    controls = new THREE.OrbitControls(camera, renderer.domElement);
-    controls.enableDamping = true;
-    controls.dampingFactor = 0.05;
-    controls.target.set(0, 3, 0);
-    controls.maxPolarAngle = Math.PI / 2.1;
-    controls.minDistance = 8;
-    controls.maxDistance = 30;
-
-    // Lighting
-    var ambient = new THREE.AmbientLight(0xfff5e6, 0.4);
-    scene.add(ambient);
-
-    var sun = new THREE.DirectionalLight(0xffeedd, 1.2);
-    sun.position.set(10, 20, 10);
-    sun.castShadow = true;
-    sun.shadow.mapSize.width = 2048;
-    sun.shadow.mapSize.height = 2048;
-    sun.shadow.camera.near = 0.5;
-    sun.shadow.camera.far = 50;
-    sun.shadow.camera.left = -15;
-    sun.shadow.camera.right = 15;
-    sun.shadow.camera.top = 15;
-    sun.shadow.camera.bottom = -15;
-    scene.add(sun);
-
-    var warm1 = new THREE.PointLight(0xff9944, 0.8, 15);
-    warm1.position.set(-3, 5, 0);
-    scene.add(warm1);
-
-    var warm2 = new THREE.PointLight(0xff9944, 0.8, 15);
-    warm2.position.set(3, 5, 0);
-    scene.add(warm2);
-
-    var fill = new THREE.HemisphereLight(0x87ceeb, 0x654321, 0.3);
-    scene.add(fill);
-
-    buildGazebo();
-    buildEnvironment();
-    animate();
-
-    window.addEventListener('resize', onResize);
-}
-
-function buildEnvironment() {
-    // Ground
-    var groundGeo = new THREE.PlaneGeometry(80, 80, 40, 40);
-    var groundMat = new THREE.MeshStandardMaterial({
-        color: 0x4a7a3a,
-        roughness: 0.9,
-        metalness: 0.0
-    });
-    // Add slight vertex displacement for grass
-    var positions = groundGeo.attributes.position;
-    for (var i = 0; i < positions.count; i++) {
-        positions.setZ(i, positions.getZ(i) + Math.random() * 0.1);
-    }
-    groundGeo.computeVertexNormals();
-    var ground = new THREE.Mesh(groundGeo, groundMat);
-    ground.rotation.x = -Math.PI / 2;
-    ground.position.y = -0.01;
-    ground.receiveShadow = true;
-    scene.add(ground);
-}
-
-function buildGazebo() {
-    gazeboGroup = new THREE.Group();
-
-    var timberColor = 0x8B6914;
-    var darkTimber = 0x654321;
-    var graniteColor = 0x404040;
-    var brickColor = 0x8B4513;
-    var stoneColor = 0x6B6B6B;
-    var copperColor = 0xB87333;
-    var stainlessColor = 0xC0C0C0;
-
-    var timberMat = new THREE.MeshStandardMaterial({ color: timberColor, roughness: 0.7, metalness: 0.0 });
-    var darkTimberMat = new THREE.MeshStandardMaterial({ color: darkTimber, roughness: 0.8, metalness: 0.0 });
-    var graniteMat = new THREE.MeshStandardMaterial({ color: graniteColor, roughness: 0.3, metalness: 0.1 });
-    var brickMat = new THREE.MeshStandardMaterial({ color: brickColor, roughness: 0.9, metalness: 0.0 });
-    var stoneMat = new THREE.MeshStandardMaterial({ color: stoneColor, roughness: 0.8, metalness: 0.0 });
-    var copperMat = new THREE.MeshStandardMaterial({ color: copperColor, roughness: 0.4, metalness: 0.7 });
-    var stainlessMat = new THREE.MeshStandardMaterial({ color: stainlessColor, roughness: 0.2, metalness: 0.8 });
-    var cabinetMat = new THREE.MeshStandardMaterial({ color: 0x3a3a3a, roughness: 0.6, metalness: 0.1 });
-    var roofMat = new THREE.MeshStandardMaterial({ color: 0x4a4035, roughness: 0.8, metalness: 0.0 });
-    var tvMat = new THREE.MeshStandardMaterial({ color: 0x111111, roughness: 0.3, metalness: 0.2 });
-
-    // === FLOOR / BASE ===
-    var floorGeo = new THREE.BoxGeometry(10, 0.3, 7.5);
-    var floor = new THREE.Mesh(floorGeo, stoneMat);
-    floor.position.set(0, 0.15, 0);
-    floor.castShadow = true;
-    floor.receiveShadow = true;
-    gazeboGroup.add(floor);
-
-    // === CORNER POSTS (4 main posts) ===
-    var postGeo = new THREE.BoxGeometry(0.4, 7, 0.4);
-    var postPositions = [[-4.5, 3.5, -3.3], [4.5, 3.5, -3.3], [-4.5, 3.5, 3.3], [4.5, 3.5, 3.3]];
-    postPositions.forEach(function(pos) {
-        var post = new THREE.Mesh(postGeo, timberMat);
-        post.position.set(pos[0], pos[1], pos[2]);
-        post.castShadow = true;
-        gazeboGroup.add(post);
-    });
-
-    // Center front posts
-    var centerPostGeo = new THREE.BoxGeometry(0.35, 7, 0.35);
-    [[-1.5, 3.5, 3.3], [1.5, 3.5, 3.3]].forEach(function(pos) {
-        var cp = new THREE.Mesh(centerPostGeo, timberMat);
-        cp.position.set(pos[0], pos[1], pos[2]);
-        cp.castShadow = true;
-        gazeboGroup.add(cp);
-    });
-
-    // === ROOF STRUCTURE ===
-    // Main beams (horizontal)
-    var beamGeo = new THREE.BoxGeometry(10.5, 0.3, 0.35);
-    [-3.3, 3.3].forEach(function(z) {
-        var beam = new THREE.Mesh(beamGeo, darkTimberMat);
-        beam.position.set(0, 7, z);
-        beam.castShadow = true;
-        gazeboGroup.add(beam);
-    });
-
-    var crossBeamGeo = new THREE.BoxGeometry(0.3, 0.3, 7.1);
-    [-4.5, -1.5, 0, 1.5, 4.5].forEach(function(x) {
-        var cb = new THREE.Mesh(crossBeamGeo, darkTimberMat);
-        cb.position.set(x, 7, 0);
-        cb.castShadow = true;
-        gazeboGroup.add(cb);
-    });
-
-    // Ridge beam
-    var ridgeGeo = new THREE.BoxGeometry(10.5, 0.35, 0.35);
-    var ridge = new THREE.Mesh(ridgeGeo, darkTimberMat);
-    ridge.position.set(0, 9, 0);
-    gazeboGroup.add(ridge);
-
-    // Roof panels (peaked)
-    var roofShape = new THREE.Shape();
-    roofShape.moveTo(-5.5, 0);
-    roofShape.lineTo(0, 2.2);
-    roofShape.lineTo(5.5, 0);
-    roofShape.lineTo(-5.5, 0);
-
-    var extrudeSettings = { depth: 8, bevelEnabled: false };
-    var roofGeo = new THREE.ExtrudeGeometry(roofShape, extrudeSettings);
-    var roof = new THREE.Mesh(roofGeo, roofMat);
-    roof.position.set(0, 7, -4);
-    roof.castShadow = true;
-    gazeboGroup.add(roof);
-
-    // === BACK WALL (kitchen wall) ===
-    // Base cabinet structure
-    var backWallGeo = new THREE.BoxGeometry(9.5, 3.5, 0.8);
-    var backWall = new THREE.Mesh(backWallGeo, stoneMat);
-    backWall.position.set(0, 2.05, -3);
-    backWall.castShadow = true;
-    gazeboGroup.add(backWall);
-
-    // Cabinet doors (5 cabinet sections)
-    for (var i = 0; i < 5; i++) {
-        var cabinetGeo = new THREE.BoxGeometry(1.6, 1.8, 0.05);
-        var cabinet = new THREE.Mesh(cabinetGeo, cabinetMat);
-        cabinet.position.set(-3.6 + i * 1.8, 1.3, -2.55);
-        gazeboGroup.add(cabinet);
-
-        // Handle
-        var handleGeo = new THREE.BoxGeometry(0.02, 0.3, 0.05);
-        var handle = new THREE.Mesh(handleGeo, stainlessMat);
-        handle.position.set(-3.6 + i * 1.8 + 0.6, 1.5, -2.5);
-        gazeboGroup.add(handle);
-    }
-
-    // Granite countertop
-    var counterGeo = new THREE.BoxGeometry(9.8, 0.15, 1.2);
-    var counter = new THREE.Mesh(counterGeo, graniteMat);
-    counter.position.set(0, 2.85, -2.7);
-    counter.castShadow = true;
-    gazeboGroup.add(counter);
-
-    // === PIZZA OVEN (left side) ===
-    var ovenBaseGeo = new THREE.BoxGeometry(2.5, 2.5, 1.5);
-    var ovenBase = new THREE.Mesh(ovenBaseGeo, brickMat);
-    ovenBase.position.set(-3.5, 4.3, -2.8);
-    ovenBase.castShadow = true;
-    gazeboGroup.add(ovenBase);
-
-    // Oven dome
-    var ovenDomeGeo = new THREE.SphereGeometry(1.0, 16, 12, 0, Math.PI * 2, 0, Math.PI / 2);
-    var ovenDome = new THREE.Mesh(ovenDomeGeo, brickMat);
-    ovenDome.position.set(-3.5, 5.5, -2.8);
-    ovenDome.castShadow = true;
-    gazeboGroup.add(ovenDome);
-
-    // Copper hood over oven
-    var hoodGeo = new THREE.ConeGeometry(1.3, 1.2, 4);
-    var hood = new THREE.Mesh(hoodGeo, copperMat);
-    hood.position.set(-3.5, 6.6, -2.8);
-    hood.rotation.y = Math.PI / 4;
-    gazeboGroup.add(hood);
-
-    // Oven opening (dark)
-    var openingMat = new THREE.MeshStandardMaterial({ color: 0x1a0a00, roughness: 1.0, metalness: 0.0, emissive: 0xff4400, emissiveIntensity: 0.3 });
-    var openingGeo = new THREE.BoxGeometry(0.8, 0.6, 0.1);
-    var opening = new THREE.Mesh(openingGeo, openingMat);
-    opening.position.set(-3.5, 4.5, -2.02);
-    gazeboGroup.add(opening);
-
-    // === TV AREA (center) ===
-    var tvBackGeo = new THREE.BoxGeometry(2.5, 2, 0.1);
-    var tvBack = new THREE.Mesh(tvBackGeo, new THREE.MeshStandardMaterial({ color: 0x2a2a2a, roughness: 0.5 }));
-    tvBack.position.set(0, 4.5, -2.6);
-    gazeboGroup.add(tvBack);
-
-    var tvScreenGeo = new THREE.BoxGeometry(2.2, 1.3, 0.08);
-    var tvScreen = new THREE.Mesh(tvScreenGeo, tvMat);
-    tvScreen.position.set(0, 4.7, -2.53);
-    gazeboGroup.add(tvScreen);
-
-    // Floating shelves
-    var shelfGeo = new THREE.BoxGeometry(2.5, 0.08, 0.5);
-    var shelfMat = new THREE.MeshStandardMaterial({ color: 0x5a4020, roughness: 0.6 });
-    [3.7, 5.8].forEach(function(y) {
-        var shelf = new THREE.Mesh(shelfGeo, shelfMat);
-        shelf.position.set(0, y, -2.5);
-        shelf.castShadow = true;
-        gazeboGroup.add(shelf);
-    });
-
-    // === GAS GRILL (right side) ===
-    var grillBaseGeo = new THREE.BoxGeometry(2.5, 0.5, 1.0);
-    var grillBase = new THREE.Mesh(grillBaseGeo, stainlessMat);
-    grillBase.position.set(3.5, 3.15, -2.7);
-    gazeboGroup.add(grillBase);
-
-    // Grill body
-    var grillBodyGeo = new THREE.BoxGeometry(2.2, 0.8, 0.8);
-    var grillBody = new THREE.Mesh(grillBodyGeo, stainlessMat);
-    grillBody.position.set(3.5, 3.8, -2.6);
-    grillBody.castShadow = true;
-    gazeboGroup.add(grillBody);
-
-    // Grill lid (slightly open)
-    var grillLidGeo = new THREE.BoxGeometry(2.2, 0.08, 0.8);
-    var grillLid = new THREE.Mesh(grillLidGeo, stainlessMat);
-    grillLid.position.set(3.5, 4.2, -2.35);
-    grillLid.rotation.x = -0.3;
-    gazeboGroup.add(grillLid);
-
-    // Grill knobs
-    var knobGeo = new THREE.CylinderGeometry(0.06, 0.06, 0.04, 8);
-    for (var k = 0; k < 4; k++) {
-        var knob = new THREE.Mesh(knobGeo, new THREE.MeshStandardMaterial({ color: 0x222222 }));
-        knob.position.set(2.7 + k * 0.5, 3.6, -2.18);
-        knob.rotation.x = Math.PI / 2;
-        gazeboGroup.add(knob);
-    }
-
-    // === BAR COUNTER (front) ===
-    var barGeo = new THREE.BoxGeometry(6, 3.5, 0.6);
-    var bar = new THREE.Mesh(barGeo, stoneMat);
-    bar.position.set(0, 1.75, 2.2);
-    bar.castShadow = true;
-    gazeboGroup.add(bar);
-
-    // Bar top
-    var barTopGeo = new THREE.BoxGeometry(6.3, 0.12, 1.0);
-    var barTop = new THREE.Mesh(barTopGeo, graniteMat);
-    barTop.position.set(0, 3.55, 2.4);
-    barTop.castShadow = true;
-    gazeboGroup.add(barTop);
-
-    // === BAR STOOLS (3 stools) ===
-    var seatMat = new THREE.MeshStandardMaterial({ color: 0x3a3020, roughness: 0.7, metalness: 0.1 });
-    var legMat = new THREE.MeshStandardMaterial({ color: 0x222222, roughness: 0.4, metalness: 0.6 });
-    [-2, 0, 2].forEach(function(x) {
-        // Seat
-        var seatGeo = new THREE.CylinderGeometry(0.35, 0.35, 0.12, 16);
-        var seat = new THREE.Mesh(seatGeo, seatMat);
-        seat.position.set(x, 2.3, 3.5);
-        seat.castShadow = true;
-        gazeboGroup.add(seat);
-
-        // Woven back
-        var backGeo = new THREE.CylinderGeometry(0.35, 0.35, 0.6, 16, 1, true);
-        var back = new THREE.Mesh(backGeo, seatMat);
-        back.position.set(x, 2.7, 3.5);
-        gazeboGroup.add(back);
-
-        // Legs
-        var legGeo = new THREE.CylinderGeometry(0.03, 0.03, 2.2, 6);
-        [[-0.2, 0, -0.2], [0.2, 0, -0.2], [-0.2, 0, 0.2], [0.2, 0, 0.2]].forEach(function(off) {
-            var leg = new THREE.Mesh(legGeo, legMat);
-            leg.position.set(x + off[0], 1.1, 3.5 + off[2]);
-            gazeboGroup.add(leg);
-        });
-
-        // Footrest ring
-        var ringGeo = new THREE.TorusGeometry(0.25, 0.02, 6, 16);
-        var ring = new THREE.Mesh(ringGeo, legMat);
-        ring.position.set(x, 0.7, 3.5);
-        ring.rotation.x = Math.PI / 2;
-        gazeboGroup.add(ring);
-    });
-
-    // === PENDANT LIGHTS ===
-    var lightFixtureMat = new THREE.MeshStandardMaterial({ color: 0x111111, roughness: 0.4, metalness: 0.6 });
-    var bulbMat = new THREE.MeshStandardMaterial({ color: 0xffdd88, emissive: 0xffaa44, emissiveIntensity: 0.8, roughness: 0.3 });
-    [-2.5, 0, 2.5].forEach(function(x) {
-        // Wire
-        var wireGeo = new THREE.CylinderGeometry(0.01, 0.01, 1.5, 4);
-        var wire = new THREE.Mesh(wireGeo, lightFixtureMat);
-        wire.position.set(x, 6.5, 0);
-        gazeboGroup.add(wire);
-
-        // Fixture
-        var fixtureGeo = new THREE.ConeGeometry(0.25, 0.35, 8, 1, true);
-        var fixture = new THREE.Mesh(fixtureGeo, copperMat);
-        fixture.position.set(x, 5.85, 0);
-        gazeboGroup.add(fixture);
-
-        // Bulb
-        var bulbGeo = new THREE.SphereGeometry(0.1, 8, 8);
-        var bulb = new THREE.Mesh(bulbGeo, bulbMat);
-        bulb.position.set(x, 5.7, 0);
-        gazeboGroup.add(bulb);
-
-        // Point light for warm glow
-        var pl = new THREE.PointLight(0xffaa44, 0.3, 5);
-        pl.position.set(x, 5.6, 0);
-        gazeboGroup.add(pl);
-    });
-
-    // === DECORATIVE ELEMENTS ===
-    // Copper pots on shelves
-    var potGeo = new THREE.CylinderGeometry(0.12, 0.1, 0.18, 8);
-    [[-0.5, 3.85, -2.35], [0.3, 3.85, -2.35], [-0.3, 5.95, -2.35], [0.4, 5.95, -2.35]].forEach(function(pos) {
-        var pot = new THREE.Mesh(potGeo, copperMat);
-        pot.position.set(pos[0], pos[1], pos[2]);
-        gazeboGroup.add(pot);
-    });
-
-    scene.add(gazeboGroup);
-}
-
-function animate() {
-    animationFrameId = requestAnimationFrame(animate);
-    if (controls) controls.update();
-    if (renderer && scene && camera) renderer.render(scene, camera);
-}
-
-function onResize() {
-    var container = document.getElementById('arViewerContainer');
-    if (!container || !camera || !renderer) return;
-    camera.aspect = container.clientWidth / container.clientHeight;
-    camera.updateProjectionMatrix();
-    renderer.setSize(container.clientWidth, container.clientHeight);
-}
-
-function setViewAngle(view) {
-    if (!camera || !controls) return;
-    document.querySelectorAll('.ar-btn').forEach(function(b) { b.classList.remove('active'); });
-    event.target.classList.add('active');
-
-    var target = { x: 0, y: 3, z: 0 };
-    var pos;
-    switch(view) {
-        case 'front': pos = { x: 0, y: 5, z: 18 }; break;
-        case 'side':  pos = { x: 18, y: 5, z: 0 }; break;
-        case 'top':   pos = { x: 0, y: 18, z: 5 }; break;
-    }
-    gsap.to(camera.position, { x: pos.x, y: pos.y, z: pos.z, duration: 1.2, ease: 'power2.inOut' });
-    gsap.to(controls.target, { x: target.x, y: target.y, z: target.z, duration: 1.2, ease: 'power2.inOut' });
-}
-
-function launchAR() {
-    if (/Android|iPhone|iPad/i.test(navigator.userAgent)) {
-        // On mobile, attempt WebXR
-        if (navigator.xr) {
-            navigator.xr.isSessionSupported('immersive-ar').then(function(supported) {
-                if (supported) {
-                    startARSession();
-                } else {
-                    alert('AR is not supported on this device. Please try viewing the 3D model instead.');
-                }
-            });
-        } else {
-            alert('Your browser does not support AR. Please try Chrome or Safari for the best experience.');
-        }
-    } else {
-        document.getElementById('arPhonePrompt').classList.add('visible');
-    }
-}
-
-function startARSession() {
-    navigator.xr.requestSession('immersive-ar', {
-        requiredFeatures: ['hit-test'],
-        optionalFeatures: ['dom-overlay'],
-        domOverlay: { root: document.getElementById('arViewerContainer') }
-    }).then(function(session) {
-        renderer.xr.enabled = true;
-        renderer.xr.setSession(session);
-        session.addEventListener('end', function() {
-            renderer.xr.enabled = false;
-        });
-    }).catch(function(err) {
-        alert('Could not start AR session: ' + err.message);
-    });
-}
-
-function closeARPrompt() {
-    document.getElementById('arPhonePrompt').classList.remove('visible');
-}
-
-// ============================================
 // FORM SUBMISSION
 // ============================================
 function submitForm(e) {
@@ -1613,20 +1126,6 @@ function submitForm(e) {
     form.style.display = 'none';
     document.getElementById('formSuccess').classList.add('visible');
 }
-
-// ============================================
-// INITIALIZE 3D SCENE
-// ============================================
-// Lazy load Three.js scene when AR section is near viewport
-var arObserver = new IntersectionObserver(function(entries) {
-    entries.forEach(function(entry) {
-        if (entry.isIntersecting) {
-            initThreeJS();
-            arObserver.disconnect();
-        }
-    });
-}, { rootMargin: '200px' });
-arObserver.observe(document.getElementById('arViewerContainer'));
 </script>
 </body>
 </html>
